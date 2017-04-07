@@ -1,13 +1,15 @@
 -module(second).
--export([double/1, mult/2, area/3]).
+-export([areaOfRAT/2, perimOfRAT/2, longSide/2]).
 
-mult(X,Y) ->
-    X*Y.
+areaOfRAT(A,B) ->
+    C = longSide(A,B),
+    first:area(A,B,C).
 
-double(X) ->
-    mult(2,X).
 
-area(A,B,C) ->
-   S = (A+B+C)/2,
-   math:sqrt(S*(S-A)*(S-B)*(S-C)).
+perimOfRAT(A,B) ->
+    C = longSide(A,B),
+    A+B+C.
+
+longSide(A,B) ->
+    math:sqrt(first:square(A) + first:square(B)).
 
